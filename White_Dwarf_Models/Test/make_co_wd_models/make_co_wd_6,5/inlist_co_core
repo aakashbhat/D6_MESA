@@ -26,7 +26,7 @@
 
 &controls
       ! limit max_model_number as part of test_suite
-      max_model_number = 2000
+      max_model_number = 5000
 
       retry_hold = 0
       neg_mass_fraction_hold = 3

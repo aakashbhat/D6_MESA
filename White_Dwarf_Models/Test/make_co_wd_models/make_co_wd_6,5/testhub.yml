@@ -1,0 +1,284 @@
+    - inlist: inlist_zams_header
+      runtime_minutes:   0.71
+      model_number:          179
+      star_age:     2.3910192134230537E+06
+      num_retries:            0
+      log_rel_run_E_err:       -10.7280471493325855
+      steps:          547
+      retries:            1
+      redos:            0
+      solver_calls_made:          548
+      solver_calls_failed:            1
+      solver_iterations:         1629
+    - inlist: inlist_to_end_he_core_burn_header
+      runtime_minutes:  12.79
+      model_number:          541
+      star_age:     4.2156240352239919E+08
+      num_retries:            1
+      log_rel_run_E_err:        -6.8605824400674003
+      steps:          541
+      retries:            1
+      redos:            0
+      solver_calls_made:          542
+      solver_calls_failed:            1
+      solver_iterations:         3767
+    - inlist: inlist_co_core_header
+    - inlist: inlist_remove_env_header
+      runtime_minutes:   9.06
+      model_number:         1299
+      star_age:     4.2872784712027025E+08
+      num_retries:           16
+      log_rel_run_E_err:        -7.3559483925148434
+      steps:          460
+      retries:           23
+      redos:            0
+      solver_calls_made:          483
+      solver_calls_failed:           23
+      solver_iterations:         1770
+    - inlist: inlist_settle_header
+    - inlist: inlist_settle_header
+      runtime_minutes:  95.93
+      model_number:         3000
+      star_age:     4.2873016972401613E+08
+      num_retries:          249
+      log_rel_run_E_err:        -9.4802872125583324
+      steps:         1932
+      retries:           18
+      redos:            0
+      solver_calls_made:         1950
+      solver_calls_failed:           18
+      solver_iterations:        13321
+    - inlist: inlist_settle_header
+    - inlist: inlist_zams_header
+      runtime_minutes:   0.86
+      model_number:          179
+      star_age:     2.3910192134230537E+06
+      num_retries:            0
+      log_rel_run_E_err:       -10.7280471493325855
+      steps:          547
+      retries:            1
+      redos:            0
+      solver_calls_made:          548
+      solver_calls_failed:            1
+      solver_iterations:         1629
+    - inlist: inlist_to_end_he_core_burn_header
+      runtime_minutes:  11.82
+      model_number:          541
+      star_age:     4.2156240352239919E+08
+      num_retries:            1
+      log_rel_run_E_err:        -6.8605824400674003
+      steps:          541
+      retries:            1
+      redos:            0
+      solver_calls_made:          542
+      solver_calls_failed:            1
+      solver_iterations:         3767
+    - inlist: inlist_co_core_header
+      runtime_minutes:  18.35
+      model_number:          690
+      star_age:     4.2872796533549130E+08
+      num_retries:            2
+      log_rel_run_E_err:        -7.3611921562608327
+      steps:          690
+      retries:            2
+      redos:            0
+      solver_calls_made:          692
+      solver_calls_failed:            2
+      solver_iterations:         3704
+    - inlist: inlist_remove_env_header
+      runtime_minutes:  41.37
+      model_number:         1152
+      star_age:     4.2872798182469535E+08
+      num_retries:          109
+      log_rel_run_E_err:        -7.1875068004960108
+      steps:          845
+      retries:          114
+      redos:            0
+      solver_calls_made:          959
+      solver_calls_failed:          114
+      solver_iterations:         7685
+    - inlist: inlist_settle_header
+      runtime_minutes:  10.45
+      model_number:         1591
+      star_age:     4.3180204297240216E+08
+      num_retries:            3
+      log_rel_run_E_err:        -9.9735786874688817
+      steps:          439
+      retries:            3
+      redos:            0
+      solver_calls_made:          442
+      solver_calls_failed:            3
+      solver_iterations:         2271
+    - inlist: inlist_zams_header
+      runtime_minutes:   0.89
+      model_number:          194
+      star_age:     1.2611047823249891E+06
+      num_retries:            0
+      log_rel_run_E_err:       -10.5878868863865971
+      steps:          551
+      retries:            0
+      redos:            0
+      solver_calls_made:          551
+      solver_calls_failed:            0
+      solver_iterations:         1499
+    - inlist: inlist_to_end_he_core_burn_header
+      runtime_minutes:   9.94
+      model_number:          491
+      star_age:     1.4815484835331097E+08
+      num_retries:            1
+      log_rel_run_E_err:        -7.3637148513442607
+      steps:          491
+      retries:            1
+      redos:            0
+      solver_calls_made:          492
+      solver_calls_failed:            1
+      solver_iterations:         3301
+    - inlist: inlist_co_core_header
+      runtime_minutes:  22.70
+      model_number:          569
+      star_age:     1.4984131648194718E+08
+      num_retries:            4
+      log_rel_run_E_err:        -7.8542518370100582
+      steps:          569
+      retries:            4
+      redos:            0
+      solver_calls_made:          573
+      solver_calls_failed:            4
+      solver_iterations:         4906
+    - inlist: inlist_remove_env_header
+      runtime_minutes:  13.46
+      model_number:          890
+      star_age:     1.4984545775505817E+08
+      num_retries:            9
+      log_rel_run_E_err:        -7.8329040233456011
+      steps:          729
+      retries:           16
+      redos:            0
+      solver_calls_made:          745
+      solver_calls_failed:           16
+      solver_iterations:         3532
+    - inlist: inlist_settle_header
+      runtime_minutes:  23.58
+      model_number:         1444
+      star_age:     1.5109990630199352E+08
+      num_retries:           32
+      log_rel_run_E_err:        -9.8832887769613365
+      steps:          582
+      retries:            4
+      redos:            0
+      solver_calls_made:          585
+      solver_calls_failed:            3
+      solver_iterations:         2386
+    - inlist: inlist_zams_header
+      runtime_minutes:   0.94
+      model_number:          199
+      star_age:     4.8524637679403357E+05
+      num_retries:            2
+      log_rel_run_E_err:       -10.8970487607943429
+      steps:          546
+      retries:            3
+      redos:            0
+      solver_calls_made:          549
+      solver_calls_failed:            3
+      solver_iterations:         1746
+    - inlist: inlist_to_end_he_core_burn_header
+      runtime_minutes:  12.97
+      model_number:          579
+      star_age:     6.0439981302730903E+07
+      num_retries:           38
+      log_rel_run_E_err:        -8.6773259336405602
+      steps:          579
+      retries:           38
+      redos:            0
+      solver_calls_made:          617
+      solver_calls_failed:           38
+      solver_iterations:         4090
+    - inlist: inlist_co_core_header
+    - inlist: inlist_zams_header
+      runtime_minutes:   1.01
+      model_number:          199
+      star_age:     4.8524637679403357E+05
+      num_retries:            2
+      log_rel_run_E_err:       -10.8970487607943429
+      steps:          546
+      retries:            3
+      redos:            0
+      solver_calls_made:          549
+      solver_calls_failed:            3
+      solver_iterations:         1746
+    - inlist: inlist_to_end_he_core_burn_header
+      runtime_minutes:  12.91
+      model_number:          579
+      star_age:     6.0439981302730903E+07
+      num_retries:           38
+      log_rel_run_E_err:        -8.6773259336405602
+      steps:          579
+      retries:           38
+      redos:            0
+      solver_calls_made:          617
+      solver_calls_failed:           38
+      solver_iterations:         4090
+    - inlist: inlist_co_core_header
+      runtime_minutes: 215.16
+      model_number:         2000
+      star_age:     6.0846361720153198E+07
+      num_retries:          460
+      log_rel_run_E_err:        -8.0118789642407879
+      steps:         2000
+      retries:          460
+      redos:            0
+      solver_calls_made:         2460
+      solver_calls_failed:          460
+      solver_iterations:        32519
+    - inlist: inlist_co_core_header
+    - inlist: inlist_co_core_header
+    - inlist: inlist_zams_header
+      runtime_minutes:   0.98
+      model_number:          199
+      star_age:     4.8524637679403357E+05
+      num_retries:            2
+      log_rel_run_E_err:       -10.8970487607943429
+      steps:          546
+      retries:            3
+      redos:            0
+      solver_calls_made:          549
+      solver_calls_failed:            3
+      solver_iterations:         1746
+    - inlist: inlist_to_end_he_core_burn_header
+      runtime_minutes:  13.42
+      model_number:          579
+      star_age:     6.0439981302730903E+07
+      num_retries:           38
+      log_rel_run_E_err:        -8.6773259336405602
+      steps:          579
+      retries:           38
+      redos:            0
+      solver_calls_made:          617
+      solver_calls_failed:           38
+      solver_iterations:         4090
+    - inlist: inlist_co_core_header
+    - inlist: inlist_zams_header
+      runtime_minutes:   0.80
+      model_number:          199
+      star_age:     4.8524637679403357E+05
+      num_retries:            2
+      log_rel_run_E_err:       -10.8970487607943429
+      steps:          546
+      retries:            3
+      redos:            0
+      solver_calls_made:          549
+      solver_calls_failed:            3
+      solver_iterations:         1746
+    - inlist: inlist_to_end_he_core_burn_header
+      runtime_minutes:  10.90
+      model_number:          579
+      star_age:     6.0439981302730903E+07
+      num_retries:           38
+      log_rel_run_E_err:        -8.6773259336405602
+      steps:          579
+      retries:           38
+      redos:            0
+      solver_calls_made:          617
+      solver_calls_failed:           38
+      solver_iterations:         4090
+    - inlist: inlist_co_core_header

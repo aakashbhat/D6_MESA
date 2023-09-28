@@ -9,7 +9,7 @@
       set_initial_age = .false.
       set_initial_model_number = .false.
 
-      ! pgstar_flag = .true.
+      pgstar_flag = .true.
 
       num_special_rate_factors = 2
       reaction_for_special_factor(1) = 'r_c12_ag_o16'
