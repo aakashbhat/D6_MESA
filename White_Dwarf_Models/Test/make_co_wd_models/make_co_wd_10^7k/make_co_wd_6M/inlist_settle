@@ -6,7 +6,7 @@
 
       save_model_when_terminate = .true.
       save_model_filename = 'final.mod'
-      required_termination_code_string = 'log_L_lower_limit'
+      required_termination_code_string = 'log_center_temp_lower_limit'
 
       set_initial_cumulative_energy_error = .true.
       new_cumulative_energy_error = 0d0
@@ -32,7 +32,7 @@
 
       x_integer_ctrl(1) = 3 ! part number
 
-      log_L_lower_limit = -2d0
+      log_center_temp_lower_limit = 7d0
 
 ! diffusion
       ! Most settings can be found in inlist_common.

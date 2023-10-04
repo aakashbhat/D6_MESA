@@ -355,3 +355,15 @@
       solver_calls_made:          278
       solver_calls_failed:            1
       solver_iterations:         1643
+    - inlist: inlist_settle_header
+      runtime_minutes:   7.52
+      model_number:         2031
+      star_age:     5.3239049549554783E+08
+      num_retries:            1
+      log_rel_run_E_err:       -10.0620856481298890
+      steps:          331
+      retries:            1
+      redos:            0
+      solver_calls_made:          332
+      solver_calls_failed:            1
+      solver_iterations:         1785

@@ -181,3 +181,15 @@
       solver_calls_made:          684
       solver_calls_failed:            4
       solver_iterations:         3305
+    - inlist: inlist_settle_header
+      runtime_minutes:  27.23
+      model_number:         1599
+      star_age:     6.1817630111279655E+08
+      num_retries:           33
+      log_rel_run_E_err:        -9.6826979510362285
+      steps:          737
+      retries:            5
+      redos:            0
+      solver_calls_made:          741
+      solver_calls_failed:            4
+      solver_iterations:         3459
