@@ -161,8 +161,8 @@ cython_debug/
 #SummerSchool/
 star
 binary
-LOGS*
-photos*
+*LOGS*
+*photos*
 **/*.png
 **/*.mp4
 *.o
