@@ -37,24 +37,19 @@
     timescale_for_relax_composition = 1d-2
     !num_steps_to_relax_composition = 5000
  
-
-    !relax_initial_angular_momentum = .false.
-    !relax_angular_momentum_filename = "angular_momentum.dat"
-    timescale_for_relax_angular_momentum = 1d-10
-    max_dt_for_relax_angular_momentum = 1d-9
-    num_timescales_for_relax_angular_momentum = 100
-
     relax_initial_entropy = .true.
     relax_entropy_filename = "donor_entropy_approx21plusco56_normalhelium.dat"!"entropy_ni56_1,5_nohe4.dat"
-    timescale_for_relax_entropy = 1d-10
+    timescale_for_relax_entropy = 1d-8
     max_dt_for_relax_entropy = 1d-9
-    !num_timescales_for_relax_entropy = 100
+    max_steps_to_relax_entropy = 300
+    num_timescales_for_relax_entropy = 300
     get_entropy_for_relax_from_eos= "eosDT" 
     save_model_when_terminate = .true.
     save_model_filename = 'relaxed_donorentropy_donorcomposition_064_approx21_normal_2.0timesni56.mod'
     pgstar_flag= .true.
     disable_pgstar_during_relax_flag= .false.
     pause_before_terminate = .true.
+    
 / ! end of star_job namelist
 
 &kap
@@ -68,6 +63,8 @@
 
 &controls
     x_integer_ctrl(1) = 2
+
+    ! report_ierr = .true.
 
     ! we do just one step in this inlist, turning off gold for this single step helps
     use_gold_tolerances = .false.
@@ -87,7 +84,8 @@
 
     !varcontrol_target = 1d-3
 
-  
+    ! atm_T_tau_opacity = 'iterated'
+    mlt_option = 'none'
 
     !hot_wind_scheme = 'Dutch'
     !cool_wind_RGB_scheme = 'Dutch'
