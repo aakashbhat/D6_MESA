@@ -4,7 +4,7 @@
   ! MESA uses PGPLOT for live plotting and gives the user a tremendous
   ! amount of control of the presentation of the information.
 
-    Grid2_win_flag=.false.
+    Grid2_win_flag=.true.
     Grid2_file_flag=.true.
     Grid2_win_width = 5! 
     Grid2_win_aspect_ratio = 0.7
