@@ -90,9 +90,33 @@
                 s% MLT_option = 'none'
                 s%energy_eqn_option='eps_grav'
                 s%max_abar_for_burning=-1
+                s% eos_rq% use_Skye=.false.
+                s% eos_rq%use_PC=.false.
+                !use_FreeEOS=.false.
+                s% eos_rq%use_CMS=.false.
+                s% eos_rq%use_OPAL_SCVH=.false.
+                s% eos_rq%logT_max_freeEOS_HI= 8.2
+                s% eos_rq%logT_max_freeEOS_lo=8.2
+                s% eos_rq%logRho_max_FreeEOS_hi = 3.0d0
+                s% eos_rq%logRho_max_FreeEOS_lo = 2.0d0
+                s%super_eddington_scaling_factor=0
+                s%super_eddington_wind_Ledd_factor=1
+                s%super_eddington_wind_max_boost = 0
+
+
+
+
         else
                 s% MLT_option = 'TDC'
                 s%max_abar_for_burning=299
+                s% eos_rq% use_Skye = .true.
+                s%eos_rq%logT_min_for_any_Skye = 8.0
+                s%eos_rq%logT_min_for_all_Skye = 8.2
+                s%eos_rq%logrho_min_for_any_Skye =2.7
+                s%eos_rq%logrho_min_for_all_Skye =3.0
+                s%eos_rq%use_simple_Skye_blends=.true.
+                s%super_eddington_scaling_factor=1
+                s%super_eddington_wind_Ledd_factor=1
 
                 !s%energy_eqn_option='dedt'
         end if
@@ -123,7 +147,7 @@
          !call star_ptr(id, s, ierr)
         ! if (ierr /= 0) return
          ! Read file
-         integer, parameter :: numrows = 956
+         integer, parameter :: numrows = 970
         integer, intent(in) :: id
         integer, intent(out) :: ierr
         real(dp), dimension(numrows) :: qm, heat
@@ -133,7 +157,7 @@
         ierr = 0
         call star_ptr(id, s, ierr)
         if (ierr /= 0) return
-        open(unit=27,file="totalheat_normal_2.0_HELM.dat")
+        open(unit=27,file="rescaled_constant_entropy_normal_2.0_HELM.dat")
 
         do j=1,numrows
            read(27,*) qm(j), heat(j)
@@ -172,11 +196,21 @@
                     !dS = 1.5d0*boltzm*dS/(s% mu(k)*mp) ! Assumes ideal gas c_V
                     ! dS = s% Cv(k)*dS ! uses MESA Cv, less consistent with Chris's runs
                     exit
-                 end if
+                end if 
+
               end do
               ! Inject at a rate such that total dS is achieved after x_ctrl seconds
-              heat2 =dS/(s% x_ctrl(1))
-              s% extra_heat(k) = heat2
+              if (s%q(k)*0.64<=0) then
+                      if (s% time <= 0.3)then
+                        heat2 =s%T(k)*dS/(s% x_ctrl(1))
+                      else 
+                        heat2=s%T(k)*dS*exp(-30*(s% Prad(k)/s% Pgas(k)))/(s% x_ctrl(1))
+                      end if
+              else
+                heat2 =s%T(k)*dS/(s% x_ctrl(1))
+              end if
+                
+             s%extra_heat(k) = heat2
            end do
         else
             do k=1,s% nz
@@ -218,7 +252,11 @@
          !end if
          
          if (s%star_age<1d2) then
-            s%Pextra_factor=2.0
+            if (s%star_age<s%x_ctrl(1)) then
+                s%Pextra_factor=2
+            else    
+                s%Pextra_factor=2
+            end if
             !if (abs(s%star_mdot)>1d-15) then
             !    s%high_logT_op_mono_full_off = -99d0 !6.4d0
             !    s%high_logT_op_mono_full_on = -99d0 !6.0d0

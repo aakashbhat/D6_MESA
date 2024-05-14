@@ -74,7 +74,7 @@
    !rho_times_r3 ! at face
    !log_rho_times_r3 ! at face
    !scale_height ! in Rsun units
-   !pressure_scale_height ! in Rsun units
+   pressure_scale_height ! in Rsun units
 
    !m_div_r ! gm/cm
    !dmbar_m_div_r
@@ -129,14 +129,14 @@
 
 
 !# Thermodynamics
-   !temperature ! temperature at center of zone
+   temperature ! temperature at center of zone
    !logT_face ! log10(temperature) at outer boundary of zone
    !logT_bb ! log10(black body temperature) at outer boundary of zone
    !logT_face_div_logT_bb
 
    !energy ! internal energy (ergs/g)
    !logE ! log10(specific internal energy) at center of zone
-   !rho ! density
+   rho ! density
    !density ! rho
 
    !entropy ! specific entropy divided by (avo*kerg)
@@ -155,7 +155,7 @@
    !grada ! dlnT_dlnP at constant S
    !dE_dRho ! at constant T
    !cv ! specific heat at constant volume
-   !cp ! specific heat at constant total pressure
+   cp ! specific heat at constant total pressure
 
    !log_CpT
    !gamma1 ! dlnP_dlnRho at constant S
@@ -358,7 +358,7 @@
 
 
 !# Opacity
-   !opacity ! opacity measured at center of zone
+   opacity ! opacity measured at center of zone
    log_opacity ! log10(opacity)
    !dkap_dlnrho_face ! partial derivative of opacity wrt. ln rho (at T=const) at outer edge of cell
       !  (was previously called dkap_dlnrho_at_face)

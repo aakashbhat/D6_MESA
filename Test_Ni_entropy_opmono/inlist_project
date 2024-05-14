@@ -1,0 +1,184 @@
+
+&star_job
+
+   ! this uses one of the prebuilt zams models from mesa/data/star_data
+    change_net=.true.
+    new_net_name="approx21_plus_co56.net"!
+    show_net_species_info=.true.
+    show_net_reactions_info=.true.
+    set_initial_dt = .true.
+    seconds_for_initial_dt = 1d-2
+    !limit_initial_dt=.true.
+    
+    load_saved_model=.true.
+    load_model_filename="relaxed_064_approx21_normal_2.0timesni56_HELM.mod"
+    set_initial_model_number=.true.
+    initial_model_number = 0
+    set_initial_age=.true.
+    initial_age=0
+    
+    show_log_description_at_start = .false.
+
+    show_net_species_info = .true.
+
+    set_initial_cumulative_energy_error = .true.
+    new_cumulative_energy_error = 0d0
+
+
+    !set_irradiation=.true.
+    !set_to_this_irrad_flux= 3.6d10
+    !irrad_col_depth = 3.7D05
+    save_model_when_terminate = .true.
+    save_model_filename = 'final_064_approx21_normal_2.0timesni56_HELM.mod'
+
+    pgstar_flag= .true.
+    disable_pgstar_during_relax_flag= .false.
+    pause_before_terminate = .true.
+/ ! end of star_job namelist
+
+&kap
+  Zbase=0.02
+  !use_Type2_opacities=.true.
+
+/ ! end of kap namelist
+
+&eos
+  !include_elec_pos=.false.
+  !use_free_eos=.false.
+  !use_simple_Skye_blends=.true.
+  logT_min_for_any_Skye = 8.0
+  logT_min_for_all_Skye = 8.2
+  !logrho_min_for_any_Skye =2.7
+  !logrho_min_for_all_Skye =3.0
+
+  !logT_max_freeEOS_HI= 8.2
+  !logT_max_freeEOS_lo=8.2
+  !use_Skye=.false.
+  use_PC=.false.
+  !use_FreeEOS=.false.
+  !use_CMS=.false.
+  !use_OPAL_SCVH=.false.
+  logRho_max_FreeEOS_hi = 3.0d0
+  logRho_max_FreeEOS_lo = 2.0d0
+
+/ ! end of eos namelist
+
+&controls
+    x_integer_ctrl(1) = 2
+    x_ctrl(1)=1d0
+    report_ierr=.true.
+    report_solver_progress=.true.
+    energy_eqn_option='eps_grav' 
+    !convergence_ignore_equL_residuals=.true.
+    ! we do just one step in this inlist, turning off gold for this single step helps
+    use_gold_tolerances = .false.
+    use_gold2_tolerances = .false.
+    op_mono_data_path = '/userdata/data/bhat/D6/opmono/OP4STARS_1.3/mono'
+    op_mono_data_cache_filename = '/userdata/data/bhat/D6/opmono/OP4STARS_1.3/mono/op_mono_cache_new.bin'
+    convergence_ignore_equL_residuals=.true.
+    op_mono_method = 'hu'
+    high_logT_op_mono_full_off = 7.0d0
+    !high_logT_op_mono_full_on = 7.8d0
+
+    use_other_energy=.true.
+    max_resid_jump_limit = 1d99
+    !max_timestep = 1d-8
+    max_model_number = 15000
+    !max_years_for_timestep=1d5
+    max_age=1d8
+    !read_extra_controls_inlist(1) = .true.
+    !extra_controls_inlist_name(1)= 'inlist_common'
+    mesh_delta_coeff=1.0
+    log_directory = 'LOGS_final_064_approx21_normal_2.0timesni56_HELM'
+   ! max_abar_for_burning=-1
+    
+    scale_max_correction = 0.1d0
+
+    varcontrol_target = 1d-3
+
+  ! limit max_model_number as part of test_suite
+
+    use_ledoux_criterion = .true.
+    mixing_length_alpha = 1.5
+    thermohaline_coeff = 1d2
+
+  ! rotational mixing coeffs
+    am_nu_ST_factor = 0.0
+    D_visc_factor = 0.0
+    am_nu_SH_factor = 0.0
+    D_ST_factor = 0.0
+    D_SH_factor = 0.0
+    D_GSF_factor = 1.0
+    D_ES_factor = 1.0
+    D_SSI_factor = 1.0
+    D_DSI_factor = 1.0
+    am_D_mix_factor = 0.0333d0
+    am_gradmu_factor = 0.1d0
+    num_cells_for_smooth_gradL_composition_term = 3
+
+    hot_wind_scheme = 'Dutch'
+    cool_wind_RGB_scheme = 'Dutch'
+    cool_wind_AGB_scheme = 'Dutch'
+    Dutch_wind_lowT_scheme = 'de Jager'
+    Dutch_scaling_factor = 1.0
+    super_eddington_wind_Ledd_factor=1.0
+    super_eddington_scaling_factor=1
+  ! controls for implicit wind
+    surf_avg_tau_min = 0
+    surf_avg_tau = 10
+    max_mdot_redo_cnt = 200
+    min_years_dt_for_redo_mdot = 0
+    surf_omega_div_omega_crit_limit = 0.99d0
+    surf_omega_div_omega_crit_tol = 0.06d0
+    rotational_mdot_boost_fac = 1d10
+    rotational_mdot_kh_fac = 1d10
+    mdot_revise_factor = 1.2
+    implicit_mdot_boost = 0.1
+    eps_mdot_factor = 0d0
+    okay_to_reduce_gradT_excess=.true.
+    gradT_excess_lambda1=-1
+    !Pextra_factor = 1.2
+    history_interval=1
+/ ! end of controls namelist
+
+
+&pgstar
+      pgstar_interval = 1
+
+    Profile_Panels1_win_flag = .true.
+
+    Profile_Panels1_win_width = 6
+    Profile_Panels1_win_aspect_ratio = 0.75
+
+    Profile_Panels1_xleft = 0.15
+    Profile_Panels1_xright = 0.85
+    Profile_Panels1_ybot = 0.15
+    Profile_Panels1_ytop = 0.85
+    Profile_Panels1_txt_scale = 1.0
+    Profile_Panels1_title = 'Profile Panels1'
+
+    Profile_Panels1_xaxis_name = 'logT'
+    Profile_Panels1_xaxis_reversed = .false.
+    Profile_Panels1_xmin = -101d0
+    Profile_Panels1_xmax = -101d0
+    Profile_Panels1_xmargin = 0d0
+    Profile_Panels1_show_mix_regions_on_xaxis = .false.
+
+    Profile_Panels1_show_grid = .true.
+
+    Profile_Panels1_num_panels = 2
+    Profile_Panels1_yaxis_name(1) = 'kap_frac_op_mono'
+    Profile_Panels1_other_yaxis_name(1) = 'log_opacity'
+    Profile_Panels1_yaxis_name(2) = 'dlnkap_dlnd'
+    Profile_Panels1_other_yaxis_name(2) = 'dlnkap_dlnT'
+
+    Profile_Panels1_use_decorator = .false.
+
+    Profile_Panels1_file_flag = .false.
+    Profile_Panels1_file_dir = 'png'
+    Profile_Panels1_file_prefix = 'profile_panels1_'
+    Profile_Panels1_file_interval = 5
+    Profile_Panels1_file_width = -1
+    Profile_Panels1_file_aspect_ratio = -1
+
+/ ! end of pgstar namelist

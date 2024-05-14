@@ -61,7 +61,7 @@
     Grid2_num_plots = 5
     Grid2_plot_name(5) = 'Profile_Panels3'
     Profile_Panels3_num_panels = 4
-    Profile_Panels3_xaxis_name = 'zone'
+    Profile_Panels3_xaxis_name = 'mass'
 
     !Profile_Panels3_xmin=0
     Profile_Panels3_yaxis_name(3) = 'logT'
