@@ -2,10 +2,10 @@
 &star_job
 
       load_saved_model = .true.
-      load_model_filename = 'co_wd.mod'
+      load_model_filename = 'WD_01,1.mod'
 
       save_model_when_terminate = .true.
-      save_model_filename = 'final_06.mod'
+      save_model_filename = 'WD_1,1.mod'
       required_termination_code_string = 'log_center_temp_lower_limit'
 
       set_initial_cumulative_energy_error = .true.
@@ -40,6 +40,7 @@
       do_element_diffusion = .true.
       show_diffusion_info = .true.
       non_nuc_neu_factor=0
+      max_abar_for_burning=-1
 ! prevent solver struggles in the atmosphere at high luminosity
       Pextra_factor = 3
 

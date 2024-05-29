@@ -48,7 +48,7 @@
     Grid2_file_interval = 2
     Grid2_file_width = 12
     show_TRho_Profile_mass_locs=.true.
-    Grid2_win_width = 9 ! 
+    Grid2_win_width = 6 ! 
     Grid2_win_aspect_ratio = 0.8
     Grid2_txt_scale_factor(1) = 0.8
     pgstar_interval=2

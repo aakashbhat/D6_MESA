@@ -168,5 +168,8 @@ binary
 *.o
 */make/*.mod
 *.smod
+**/**/*.png
+
+*.png
 #Test_Ni_Opacity/OP4STARS_1.3
 #Test_Injection/rjfarmer-pyMesa-179f1f5

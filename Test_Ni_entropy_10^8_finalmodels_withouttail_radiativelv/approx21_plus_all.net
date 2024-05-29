@@ -1,0 +1,4 @@
+      include 'approx21_plus_co56.net'
+      !add_isos_and_reactions(al26,mg26,ti44,sc44,ca44)
+
+         

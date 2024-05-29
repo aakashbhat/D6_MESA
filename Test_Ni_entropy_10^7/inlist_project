@@ -63,7 +63,7 @@
 
 &controls
     x_integer_ctrl(1) = 2
-    x_ctrl(1)=0.1d0
+    x_ctrl(1)=1d-2
     report_ierr=.true.
     report_solver_progress=.true.
     energy_eqn_option='eps_grav' 
@@ -75,12 +75,12 @@
     !op_mono_data_cache_filename = '/userdata/data/bhat/D6/KavliSP23/Test_Ni_Opacity/OP4STARS_1.3/mono/op_mono_cache.bin'
     !convergence_ignore_equL_residuals=.true.
     !op_mono_method = 'hu'
-    use_other_energy=.false.
+    use_other_energy=.true.
     max_resid_jump_limit = 1d99
     !max_timestep = 1d-8
     max_model_number = 15000
     !max_years_for_timestep=1d5
-    max_age=0.1d-9
+    max_age=1d8
     !read_extra_controls_inlist(1) = .true.
     !extra_controls_inlist_name(1)= 'inlist_common'
     mesh_delta_coeff=1.0

@@ -82,15 +82,15 @@
     !op_mono_method = 'hu'
     use_other_energy=.true.
     max_resid_jump_limit = 1d99
-    !max_timestep = 1d-8
+    max_timestep = 1d-4
     max_model_number = 15000
     !max_years_for_timestep=1d5
-    max_age=3.2d-10
+    max_age=3d8
     !read_extra_controls_inlist(1) = .true.
     !extra_controls_inlist_name(1)= 'inlist_common'
     mesh_delta_coeff=1.0
     !log_directory = 'LOGS_final_011_approx21_normal_2.0timesni56_nonHELM'
-    log_directory = 'LOGS_donor_remnant_heated_approx21_normal_2.0timesni56_nonHELM_0,01s'
+    log_directory = 'LOGS_final_donor_remnant_heated_approx21_normal_2.0timesni56_nonHELM_0,01s'
 
     ! max_abar_for_burning=-1
     

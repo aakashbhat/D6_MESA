@@ -102,7 +102,7 @@
                 s%super_eddington_scaling_factor=0
                 s%super_eddington_wind_Ledd_factor=1
                 s%super_eddington_wind_max_boost = 0
-
+                s%max_timestep=1d-4
 
 
 
@@ -117,6 +117,7 @@
                 s%eos_rq%use_simple_Skye_blends=.true.
                 s%super_eddington_scaling_factor=1
                 s%super_eddington_wind_Ledd_factor=1
+                s%max_timestep= 0
 
                 !s%energy_eqn_option='dedt'
         end if
@@ -157,7 +158,7 @@
         ierr = 0
         call star_ptr(id, s, ierr)
         if (ierr /= 0) return
-        open(unit=27,file="rescaled_constant_entropy_normal_2.0_HELM.dat")
+        open(unit=27,file="rescaled_entropy_normal_2.0_HELM.dat")
 
         do j=1,numrows
            read(27,*) qm(j), heat(j)
@@ -200,14 +201,14 @@
 
               end do
               ! Inject at a rate such that total dS is achieved after x_ctrl seconds
-              if (s%q(k)*0.64<=0) then
+              if (s%q(k)*0.64<0) then
                       if (s% time <= 0.3)then
                         heat2 =s%T(k)*dS/(s% x_ctrl(1))
                       else 
                         heat2=s%T(k)*dS*exp(-30*(s% Prad(k)/s% Pgas(k)))/(s% x_ctrl(1))
                       end if
               else
-                heat2 =s%T(k)*dS/(s% x_ctrl(1))
+                heat2 =0.1*s%T(k)*dS/(s% x_ctrl(1))
               end if
                 
              s%extra_heat(k) = heat2

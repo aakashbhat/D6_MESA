@@ -166,7 +166,7 @@
    !chiRho ! dlnP_dlnRho at constant T
    !chiT ! dlnP_dlnT at constant Rho
 
-   !csound ! sound speed
+   csound ! sound speed
    !log_csound
    !csound_face ! sound speed (was previously called csound_at_face)
    !cs_at_cell_bdy ! sound speed at cell boundary (csound is at cell center)

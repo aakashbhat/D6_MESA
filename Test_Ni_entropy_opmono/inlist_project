@@ -7,11 +7,12 @@
     show_net_species_info=.true.
     show_net_reactions_info=.true.
     set_initial_dt = .true.
-    seconds_for_initial_dt = 1d-2
+    seconds_for_initial_dt = 1d-4
     !limit_initial_dt=.true.
     
     load_saved_model=.true.
-    load_model_filename="relaxed_064_approx21_normal_2.0timesni56_HELM.mod"
+    load_model_filename="relaxed_011_approx21_tail_2.0timesni56.mod"
+    !load_model_filename="relaxed_011_approx21_normal_2.0timesni56_HELM.mod"
     set_initial_model_number=.true.
     initial_model_number = 0
     set_initial_age=.true.
@@ -29,7 +30,7 @@
     !set_to_this_irrad_flux= 3.6d10
     !irrad_col_depth = 3.7D05
     save_model_when_terminate = .true.
-    save_model_filename = 'final_064_approx21_normal_2.0timesni56_HELM.mod'
+    save_model_filename = 'final_011_approx21_tail_2.0timesni56_0,01s_withoutneutrino_final.mod'
 
     pgstar_flag= .true.
     disable_pgstar_during_relax_flag= .false.
@@ -65,7 +66,7 @@
 
 &controls
     x_integer_ctrl(1) = 2
-    x_ctrl(1)=1d0
+    x_ctrl(1)=1d-2
     report_ierr=.true.
     report_solver_progress=.true.
     energy_eqn_option='eps_grav' 
@@ -73,25 +74,25 @@
     ! we do just one step in this inlist, turning off gold for this single step helps
     use_gold_tolerances = .false.
     use_gold2_tolerances = .false.
+    use_other_energy=.true.
     op_mono_data_path = '/userdata/data/bhat/D6/opmono/OP4STARS_1.3/mono'
     op_mono_data_cache_filename = '/userdata/data/bhat/D6/opmono/OP4STARS_1.3/mono/op_mono_cache_new.bin'
     convergence_ignore_equL_residuals=.true.
     op_mono_method = 'hu'
-    high_logT_op_mono_full_off = 7.0d0
-    !high_logT_op_mono_full_on = 7.8d0
+    high_logT_op_mono_full_off = 8d0
 
-    use_other_energy=.true.
     max_resid_jump_limit = 1d99
-    !max_timestep = 1d-8
+    !max_timestep = 1d-4
     max_model_number = 15000
     !max_years_for_timestep=1d5
     max_age=1d8
     !read_extra_controls_inlist(1) = .true.
     !extra_controls_inlist_name(1)= 'inlist_common'
     mesh_delta_coeff=1.0
-    log_directory = 'LOGS_final_064_approx21_normal_2.0timesni56_HELM'
+    log_directory = 'LOGS_final_011_approx21_tail_2.0timesni56_0,01s'
    ! max_abar_for_burning=-1
-    
+    non_nuc_neu_factor = 1
+ 
     scale_max_correction = 0.1d0
 
     varcontrol_target = 1d-3
@@ -100,44 +101,20 @@
 
     use_ledoux_criterion = .true.
     mixing_length_alpha = 1.5
-    thermohaline_coeff = 1d2
+    thermohaline_coeff = 1d0
 
-  ! rotational mixing coeffs
-    am_nu_ST_factor = 0.0
-    D_visc_factor = 0.0
-    am_nu_SH_factor = 0.0
-    D_ST_factor = 0.0
-    D_SH_factor = 0.0
-    D_GSF_factor = 1.0
-    D_ES_factor = 1.0
-    D_SSI_factor = 1.0
-    D_DSI_factor = 1.0
-    am_D_mix_factor = 0.0333d0
-    am_gradmu_factor = 0.1d0
-    num_cells_for_smooth_gradL_composition_term = 3
 
-    hot_wind_scheme = 'Dutch'
-    cool_wind_RGB_scheme = 'Dutch'
-    cool_wind_AGB_scheme = 'Dutch'
-    Dutch_wind_lowT_scheme = 'de Jager'
-    Dutch_scaling_factor = 1.0
-    super_eddington_wind_Ledd_factor=1.0
-    super_eddington_scaling_factor=1
-  ! controls for implicit wind
-    surf_avg_tau_min = 0
-    surf_avg_tau = 10
-    max_mdot_redo_cnt = 200
-    min_years_dt_for_redo_mdot = 0
-    surf_omega_div_omega_crit_limit = 0.99d0
-    surf_omega_div_omega_crit_tol = 0.06d0
-    rotational_mdot_boost_fac = 1d10
-    rotational_mdot_kh_fac = 1d10
+    !super_eddington_wind_Ledd_factor=1.0
+    !super_eddington_scaling_factor=1
+    !super_eddington_wind_max_boost = 1
+
     mdot_revise_factor = 1.2
     implicit_mdot_boost = 0.1
     eps_mdot_factor = 0d0
     okay_to_reduce_gradT_excess=.true.
     gradT_excess_lambda1=-1
-    !Pextra_factor = 1.2
+    Pextra_factor = 1.5
+  
     history_interval=1
 / ! end of controls namelist
 

@@ -8,16 +8,16 @@
   ! see star/defaults/star_job.defaults
 
     load_saved_model=.true.
-    load_model_filename="final_06_withneutrino.mod"
+    load_model_filename="WD_049.mod"
     set_initial_model_number=.true.
     initial_model_number = 0
     relax_mass_scale=.true.
-    new_mass=0.64d0
+    new_mass=0.50d0
    ! dlgm_per_step = 1d-2
     
   ! save a model at the end of the run
     save_model_when_terminate = .true.
-    save_model_filename = 'WD_064_neutrino.mod'
+    save_model_filename = 'WD_050.mod'
 
   ! display on-screen plots
     pgstar_flag = .true.

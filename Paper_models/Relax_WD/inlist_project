@@ -1,0 +1,81 @@
+
+&star_job
+
+   ! this uses one of the prebuilt zams models from mesa/data/star_data
+    change_net=.true.
+    new_net_name="approx21_plus_co56.net"!
+    show_net_species_info=.true.
+    show_net_reactions_info=.true.
+    set_initial_dt = .true.
+    years_for_initial_dt = 0.001
+    load_saved_model=.true.
+    load_model_filename="WD_1,1.mod"
+    set_initial_model_number=.true.
+    initial_model_number = 0
+    set_initial_age=.true.
+    initial_age=0
+    
+    show_log_description_at_start = .false.
+
+    show_net_species_info = .true.
+
+    set_initial_cumulative_energy_error = .true.
+    new_cumulative_energy_error = 0d0
+
+
+    ! Relaxes composition to that of a star with an initial mass
+    ! of 10 Msun after TAMS, but before reaching the giant branch
+    relax_initial_composition = .true.
+    relax_composition_filename = "remnant_composition_approx21plusco56_normalhelium_2.0timesNi56.dat"!
+    timescale_for_relax_composition = 1d-2
+    !num_steps_to_relax_composition = 5000
+ 
+    save_model_when_terminate = .true.
+    save_model_filename = 'relaxed_01_approx21_normal_2.0timesni56.mod'
+
+    pgstar_flag= .true.
+    disable_pgstar_during_relax_flag= .false.
+    pause_before_terminate = .true.
+/ ! end of star_job namelist
+
+&kap
+  zbase=0.02  
+
+/ ! end of kap namelist
+
+&eos
+
+        use_PC = .false.
+        use_Skye = .false.
+        logRho_max_FreeEOS_hi = 3.0d0
+        logRho_max_FreeEOS_lo = 2.0d0
+
+
+
+/ ! end of eos namelist
+
+&controls
+    x_integer_ctrl(1) = 2
+
+    ! we do just one step in this inlist, turning off gold for this single step helps
+    use_gold_tolerances = .false.
+    use_gold2_tolerances = .false.
+    max_resid_jump_limit = 1d99
+    mlt_option='none'
+    max_timestep = 1d0
+    max_model_number = 1
+    mesh_delta_coeff=1.0
+    log_directory = 'LOGS_relaxed_011_approx21_normal_2.0times56'
+
+    !scale_max_correction = 0.1d0
+
+    !varcontrol_target = 1d-3
+
+  !
+
+/ ! end of controls namelist
+
+
+&pgstar
+      
+/ ! end of pgstar namelist

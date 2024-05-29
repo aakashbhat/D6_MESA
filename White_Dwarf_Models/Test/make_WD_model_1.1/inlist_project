@@ -8,7 +8,7 @@
   ! see star/defaults/star_job.defaults
 
     load_saved_model=.true.
-    load_model_filename="WD_095.mod"
+    load_model_filename="WD_01.mod"
     set_initial_model_number=.true.
     initial_model_number = 0
     relax_mass_scale=.true.
@@ -17,7 +17,7 @@
     
   ! save a model at the end of the run
     save_model_when_terminate = .true.
-    save_model_filename = 'WD_011.mod'
+    save_model_filename = 'WD_1,1.mod'
 
   ! display on-screen plots
     pgstar_flag = .true.
