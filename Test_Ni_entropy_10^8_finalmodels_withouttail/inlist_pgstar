@@ -61,14 +61,18 @@
     Grid2_num_plots = 5
     Grid2_plot_name(5) = 'Profile_Panels3'
     Profile_Panels3_num_panels = 4
-    Profile_Panels3_xaxis_name = 'logxq'
-
-    !Profile_Panels3_xmin=0
-    Profile_Panels3_yaxis_name(3) = 'logT'
-    Profile_Panels3_other_yaxis_name(3) = 'gam'
-    Profile_Panels3_yaxis_name(4) = 'extra_heat'
-    Profile_Panels3_other_yaxis_name(4) = 'logrho'
-    
+    Profile_Panels3_xaxis_name = 'zone'
+     !Profile_Panels3_ymin=0
+    Profile_Panels3_yaxis_name(3) = 'log_Lconv'
+    Profile_Panels3_other_yaxis_name(3) = 'log_Lrad'
+    Profile_Panels3_yaxis_name(4) = 'log_L_div_Ledd'
+    Profile_Panels3_other_yaxis_name(4) = 'tau'
+    Profile_Panels3_ymin(4)=0
+    Profile_Panels3_other_ymin(4)=0
+    !Profile_Panels3_other_ymax(4)=1000
+    Profile_Panels3_xmax=10
+    Profile_Panels3_ymin(3)=0
+    Profile_Panels3_other_ymin(3)=0 
     !Grid2_plot_name(6) = 'Profile_Panels3'
     !Profile_Panels4_xaxis_name = 'radius'
     !Profile_Panels3_yaxis_name(4) = 'eos_frac_FreeEOS'

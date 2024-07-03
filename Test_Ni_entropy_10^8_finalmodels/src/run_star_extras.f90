@@ -247,7 +247,7 @@
          !end if
          
          if (s%star_age<1d3) then
-            s%Pextra_factor=3
+            s%Pextra_factor=2
             !if (abs(s%star_mdot)>1d-15) then
             !    s%high_logT_op_mono_full_off = -99d0 !6.4d0
             !    s%high_logT_op_mono_full_on = -99d0 !6.0d0

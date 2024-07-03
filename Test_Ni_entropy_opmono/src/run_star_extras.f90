@@ -117,6 +117,12 @@
                 s%eos_rq%use_simple_Skye_blends=.true.
                 s%super_eddington_scaling_factor=1
                 s%max_timestep= 0
+                if (s%star_age<1d3) then
+                        s%super_eddington_scaling_factor=1
+                else
+                        s%super_eddington_scaling_factor=0
+                end if
+
                 !s%diffusion_min_Z_for_radaccel=15
                 !s%diffusion_max_Z_for_radaccel=28
                 !s%do_element_diffusion=.true.
@@ -245,29 +251,31 @@
          !   write(*, *) 'have reached desired hydrogen mass'
          !   return
          !end if
-         if (s%star_age<1d2) then
-            s%Pextra_factor=2
-            if(s%star_age<4d-7) then
+         if (s%star_age<1d3) then
+            s%Pextra_factor=3
+            if(s%star_age<4d-2) then
                 s%use_op_mono_alt_get_kap=.false.
             else
-                if (abs(s%star_mdot)>1d-10) then
-                        s%high_logT_op_mono_full_off = 7.8d0 !6.4d0
+                if (abs(s%star_mdot)>1d-8) then
+                        
+                        s%high_logT_op_mono_full_off = 8.0d0 !6.4d0
                         s%high_logT_op_mono_full_on = 7.7d0 !6.0d0
-                        s%low_logT_op_mono_full_on = 5.2d0
-                        s%low_logT_op_mono_full_off = 5.0d0
+                        s%low_logT_op_mono_full_on = 6.8d0
+                        s%low_logT_op_mono_full_off = 6.5d0
                 else
-                        s%high_logT_op_mono_full_off = 7.8d0 !6.4d0
+                        s%high_logT_op_mono_full_off = 8.0d0 !6.4d0
                         s%high_logT_op_mono_full_on = 7.7d0 !6.0d0
                         s%low_logT_op_mono_full_on = 5.2d0
                         s%low_logT_op_mono_full_off = 5.0d0
                 end if
             end if
             !use_op_mono_alt_get_kap = .true.
-         else if (s%star_age>1d2) then
+         else if (s%star_age>1d3) then
             s%Pextra_factor=1
-            s%high_logT_op_mono_full_off =7.8d0
-            !s%high_logT_op_mono_full_on = -7.8d0
-            !s%low_logT_op_mono_full_off=-99d0
+            s%high_logT_op_mono_full_off =8.0d0
+            s%high_logT_op_mono_full_on = 7.7d0
+            s%low_logT_op_mono_full_on=5.3d0
+            s%low_logT_op_mono_full_off=-99d0
          end if
          
             

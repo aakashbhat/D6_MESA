@@ -115,14 +115,20 @@
                 s%eos_rq%logrho_min_for_any_Skye =2.7
                 s%eos_rq%logrho_min_for_all_Skye =3.0
                 s%eos_rq%use_simple_Skye_blends=.true.
+                s%super_eddington_wind_Ledd_factor=1.0
                 s%super_eddington_scaling_factor=1
-                s%max_timestep= 0
-                !s%diffusion_min_Z_for_radaccel=15
-                !s%diffusion_max_Z_for_radaccel=28
-                !s%do_element_diffusion=.true.
-                !s%diffusion_max_T_for_radaccel=1e8
-                !s%diffusion_screening_for_radaccel = .true.
+                s%super_eddington_wind_max_boost = 1
+                s%log_tau_function_weight = 2
+                s%max_surface_cell_dq = 1d-17
+                s%min_dq=1d-18
 
+                s%max_timestep= 0
+                !s%diffusion_min_Z_for_radaccel=26
+                !s%diffusion_max_Z_for_radaccel=30
+                !s%do_element_diffusion=.true.
+                !s%diffusion_max_T_for_radaccel=1e7
+                !s%diffusion_screening_for_radaccel = .true.
+                !s%diffusion_use_full_net=.true.
                 !s%energy_eqn_option='dedt'
         end if
       end function extras_start_step
@@ -204,7 +210,7 @@
                  end if
               end do
               ! Inject at a rate such that total dS is achieved after x_ctrl seconds
-              heat2 =0.3*s%T(k)*dS/(s% x_ctrl(1))
+              heat2 =0.5*s%T(k)*dS/(s% x_ctrl(1))
               s% extra_heat(k) = heat2
            end do
         else
@@ -245,27 +251,89 @@
          !   write(*, *) 'have reached desired hydrogen mass'
          !   return
          !end if
-         
-         !if (s%star_age<3d0) then
-            !s%Pextra_factor=1.5
-            !if (abs(s%star_mdot)>1d-15) then
-            !    s%high_logT_op_mono_full_off = -99d0 !6.4d0
-            !    s%high_logT_op_mono_full_on = -99d0 !6.0d0
-            !    s%low_logT_op_mono_full_on = -99d0 
-            !    s%low_logT_op_mono_full_off = -99d0 
-            !else 
-            !    s%high_logT_op_mono_full_off = -99d0 !6.4d0
-            !    s%high_logT_op_mono_full_on = -99d0 !6.0d0
-            !    s%low_logT_op_mono_full_on = -99d0
-            !    s%low_logT_op_mono_full_off = -99d0
+        if (s%star_age<1d3) then
+            s%Pextra_factor=1.5
+            !if(s%star_age<4d-2) then
+!            s%use_op_mono_alt_get_kap=.false.
+            !else
+            !    if (abs(s%star_mdot)>1d-8) then
+
+            !            s%high_logT_op_mono_full_off = 7.8d0 !6.4d0
+            !            s%high_logT_op_mono_full_on = 7.5d0 !6.0d0
+            !            s%low_logT_op_mono_full_on = 6.8d0
+            !            s%low_logT_op_mono_full_off = 6.5d0
+            !    else
+            !            s%high_logT_op_mono_full_off = 7.8d0 !6.4d0
+            !            s%high_logT_op_mono_full_on = 7.5d0 !6.0d0
+            !            s%low_logT_op_mono_full_on = 5.2d0
+            !            s%low_logT_op_mono_full_off = 5.0d0
+            !    end if
             !end if
             !use_op_mono_alt_get_kap = .true.
-         !else if (s%star_age>1d2) then
-          !  s%Pextra_factor=1
-            !s%high_logT_op_mono_full_off = -99d0
-            !s%high_logT_op_mono_full_on = -99d0
-            !s%low_logT_op_mono_full_off=-99d0
-         !end if
+         else if ((s%star_age>1d3) .and. (s%star_age<1d5)) then
+            s%Pextra_factor=1.2
+            s%diffusion_min_Z_for_radaccel=10
+            s%diffusion_max_Z_for_radaccel=28
+            s%do_element_diffusion=.true.
+            s%diffusion_max_T_for_radaccel=1e8
+            s%diffusion_screening_for_radaccel = .true.
+            s%diffusion_use_full_net=.false.
+     !       s%diffusion_num_classes=6
+            s%diffusion_v_max=1d-2
+            s%diffusion_tol_correction_max = 3d-1
+            s%diffusion_tol_correction_norm = 3d-3
+            s%diffusion_min_X_hard_limit = -5d-3
+            s%diffusion_dt_limit = 1 ! no element diffusion if dt < this limit (in seconds)
+
+
+            s%diffusion_min_dq_at_surface = 5d-14
+            ! treat at least this much at surface as a single cell for purposes of diffusion
+
+            s%diffusion_min_T_at_surface = 1d4 ! this should be large enough to ensure hydrogen ionization
+            ! treat cells cells at surface with T < this as a single cell for purposes of diffusion
+
+            s%diffusion_min_dq_ratio_at_surface = 4
+
+            s% diffusion_X_total_atol = 1d-9
+            s%diffusion_X_total_rtol = 1d-6
+
+            s%diffusion_upwind_abs_v_limit = 1d-6
+            ! switch to upwind for i at face k if abs(v(i,k)) > this limit
+
+            s%diffusion_T_full_on = 1d3
+            s%diffusion_T_full_off = 1d3
+
+            s%diffusion_calculates_ionization = .true.
+            s%diffusion_nsmooth_typical_charge = 10
+
+
+
+
+            !s%use_op_mono_alt_get_kap = .false.
+
+            !s%op_mono_min_X_to_include = 1d-4 ! skip iso if mass fraction < this
+
+            s%diffusion_num_classes = 8 ! number of classes of species for diffusion calculations
+            s%diffusion_class_representative(1) = 'h1'
+            s%diffusion_class_representative(2) = 'he4'
+            s%diffusion_class_representative(3) = 'c12'
+            s%diffusion_class_representative(7) = 'si28'
+            s%diffusion_class_representative(4) = 'o16'
+            s%diffusion_class_representative(5) = 'ne20'
+            s%diffusion_class_representative(6) = 'mg24'
+            s%diffusion_class_representative(8) = 'fe56'
+            s%energy_eqn_option='dedt'
+            
+         else if (s%star_age>1d5) then
+            s%Pextra_factor=1.2
+            !s%high_logT_op_mono_full_off =6.3d0
+            !s%high_logT_op_mono_full_on = 5.8d0
+            !s%low_logT_op_mono_full_on=5.2d0
+            !s%low_logT_op_mono_full_off=5.0d0
+            !s%use_op_mono_alt_get_kap = .true.
+            !s%op_mono_min_X_to_include = 1d-6 ! skip iso if mass fraction < this
+
+         end if
             
     end function extras_check_model
 

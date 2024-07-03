@@ -143,7 +143,7 @@
    logS ! log10(specific entropy)
    logS_per_baryon ! log10(specific entropy per baryon / kerg)
 
-   !pressure ! total pressure at center of zone (pgas + prad)
+   !pressure ! total ressure at center of zone (pgas + prad)
    !prad ! radiation pressure at center of zone
    !pgas ! gas pressure at center of zone (electrons and ions)
    !logPgas ! log10(pgas)
@@ -383,8 +383,8 @@
    logL ! log10(max(1d-2,L/Lsun))
    log_Lrad
    log_Ledd ! log10(Leddington/Lsun) -- local Ledd, 4 pi clight G m / kap
-   !log_L_div_Ledd ! log10(max(1d-12,L/Leddington))
-   !log_Lrad_div_Ledd
+   log_L_div_Ledd ! log10(max(1d-12,L/Leddington))
+   log_Lrad_div_Ledd
    !log_Lrad_div_L
    !signed_log_power ! sign(L)*log10(max(1,abs(L))) 
 
@@ -538,7 +538,7 @@
 
 
 !# Optical Depth
-   !tau ! optical depth
+   tau ! optical depth
    !log_column_depth ! log10 column depth, exterior mass / area (g cm^-2)
    !log_radial_depth ! log10 radial distance to surface (cm)
    !logtau ! log10(optical depth) at center of zone

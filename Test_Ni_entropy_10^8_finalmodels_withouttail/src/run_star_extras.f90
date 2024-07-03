@@ -115,11 +115,18 @@
                 s%eos_rq%logrho_min_for_any_Skye =2.7
                 s%eos_rq%logrho_min_for_all_Skye =3.0
                 s%eos_rq%use_simple_Skye_blends=.true.
-                if (s%star_age<1d3) then
-                        s%super_eddington_scaling_factor=1
-                else 
-                        s%super_eddington_scaling_factor=0
-                end if
+                !if (s%star_age<1d3) then
+                !        s%super_eddington_scaling_factor=1
+                !else 
+                !        s%super_eddington_scaling_factor=0
+                !end if
+                s%super_eddington_wind_Ledd_factor=1.0
+                s%super_eddington_scaling_factor=1
+                s%super_eddington_wind_max_boost = 1
+                s%log_tau_function_weight = 2
+                s%max_surface_cell_dq = 1d-17
+                s%min_dq=1d-18
+
                 s%max_timestep= 0
                 !s%energy_eqn_option='dedt'
         end if
@@ -245,7 +252,11 @@
          !end if
          
          if (s%star_age<1d3) then
-            s%Pextra_factor=1.5
+                 if (s%star_age<1d2) then
+                        s%Pextra_factor=1.5
+                 else if (s%star_age>1d2) then
+                        s%Pextra_factor=1.5
+                 end if
             !if (abs(s%star_mdot)>1d-15) then
             !    s%high_logT_op_mono_full_off = -99d0 !6.4d0
             !    s%high_logT_op_mono_full_on = -99d0 !6.0d0
@@ -260,7 +271,10 @@
             !use_op_mono_alt_get_kap = .true.
          else if (s%star_age>1d3) then
             s%Pextra_factor=1
-           
+            !s%log_tau_function_weight = 2
+            !s%max_surface_cell_dq = 1d-17
+            !s%min_dq=1d-18
+ 
             !s%high_logT_op_mono_full_off = 8d0
             !s%high_logT_op_mono_full_on = -99d0
             !s%low_logT_op_mono_full_off=-99d0

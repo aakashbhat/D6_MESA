@@ -11,7 +11,7 @@
     !limit_initial_dt=.true.
     
     load_saved_model=.true.
-    load_model_filename="relaxed_011_approx21_tail_2.0timesni56.mod"
+    load_model_filename="relaxed_040_approx21_tail_2.0timesni56.mod"
     !load_model_filename="relaxed_011_approx21_normal_2.0timesni56_HELM.mod"
     set_initial_model_number=.true.
     initial_model_number = 0
@@ -30,7 +30,7 @@
     !set_to_this_irrad_flux= 3.6d10
     !irrad_col_depth = 3.7D05
     save_model_when_terminate = .false.
-    save_model_filename = 'final_050_approx21_tail_2.0timesni56_0,01s_withoutneutrino_final.mod'
+    save_model_filename = 'final_040_approx21_tail_2.0timesni56_0,01s_withoutneutrino_final.mod'
 
     pgstar_flag= .true.
     disable_pgstar_during_relax_flag= .false.
@@ -84,11 +84,11 @@
     !max_timestep = 1d-4
     max_model_number = 15000
     !max_years_for_timestep=1d5
-    max_age=1d-12
+    max_age=1d8
     !read_extra_controls_inlist(1) = .true.
     !extra_controls_inlist_name(1)= 'inlist_common'
     mesh_delta_coeff=1.0
-    log_directory = 'LOGS_final_011_approx21_tail_2.0timesni56_0,01s_withoutmassloss_initial'
+    log_directory = 'LOGS_final_040_approx21_tail_2.0timesni56_0,01s'
    ! max_abar_for_burning=-1
     non_nuc_neu_factor = 1
  
@@ -101,18 +101,22 @@
     use_ledoux_criterion = .true.
     mixing_length_alpha = 1.5
     thermohaline_coeff = 1d0
+    set_min_D_mix = .true.
+    min_D_mix = 1d2
+    mass_lower_limit_for_min_D_mix = 0.35d0
 
-
-    !super_eddington_wind_Ledd_factor=1.0
-    !super_eddington_scaling_factor=1
-    !super_eddington_wind_max_boost = 1
-
+    super_eddington_wind_Ledd_factor=1.0
+    super_eddington_scaling_factor=1
+    super_eddington_wind_max_boost = 1
+    !log_tau_function_weight = 2
+    !max_surface_cell_dq = 1d-17
+    !min_dq=1d-18
     mdot_revise_factor = 1.2
     implicit_mdot_boost = 0.1
     eps_mdot_factor = 0d0
     okay_to_reduce_gradT_excess=.true.
     gradT_excess_lambda1=-1
-    Pextra_factor = 1
+    !Pextra_factor = 1
     history_interval=1
 / ! end of controls namelist
 

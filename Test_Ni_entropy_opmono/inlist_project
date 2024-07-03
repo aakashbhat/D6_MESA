@@ -79,7 +79,7 @@
     op_mono_data_cache_filename = '/userdata/data/bhat/D6/opmono/OP4STARS_1.3/mono/op_mono_cache_new.bin'
     convergence_ignore_equL_residuals=.true.
     op_mono_method = 'hu'
-    high_logT_op_mono_full_off = 8d0
+    !high_logT_op_mono_full_off = 8d0
 
     max_resid_jump_limit = 1d99
     !max_timestep = 1d-4
@@ -92,7 +92,9 @@
     log_directory = 'LOGS_final_011_approx21_tail_2.0timesni56_0,01s'
    ! max_abar_for_burning=-1
     non_nuc_neu_factor = 1
- 
+    set_min_D_mix = .true.
+    min_D_mix = 1d2
+    mass_lower_limit_for_min_D_mix = 1.08d0 ! 
     scale_max_correction = 0.1d0
 
     varcontrol_target = 1d-3
@@ -113,7 +115,7 @@
     eps_mdot_factor = 0d0
     okay_to_reduce_gradT_excess=.true.
     gradT_excess_lambda1=-1
-    Pextra_factor = 1.5
+    !Pextra_factor = 1.5
   
     history_interval=1
 / ! end of controls namelist

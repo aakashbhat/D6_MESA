@@ -69,17 +69,18 @@
     x_ctrl(1)=1d-2
     report_ierr=.true.
     report_solver_progress=.true.
-    energy_eqn_option='eps_grav' 
+    energy_eqn_option='dedt'!'eps_grav' 
     !convergence_ignore_equL_residuals=.true.
     ! we do just one step in this inlist, turning off gold for this single step helps
-    use_gold_tolerances = .false.
-    use_gold2_tolerances = .false.
+    use_gold_tolerances = .true.
+    use_gold2_tolerances = .true.
     use_other_energy=.true.
-    !op_mono_data_path = '/userdata/data/bhat/D6/opmono/OP4STARS_1.3/mono'
-    !op_mono_data_cache_filename = '/userdata/data/bhat/D6/opmono/OP4STARS_1.3/mono/op_mono_cache_new.bin'
-    !convergence_ignore_equL_residuals=.true.
-    !op_mono_method = 'hu'
-    !high_logT_op_mono_full_off = 8d0
+    op_mono_data_path = '/userdata/data/bhat/D6/opmono/OP4STARS_1.3/mono'
+    op_mono_data_cache_filename = '/userdata/data/bhat/D6/opmono/OP4STARS_1.3/mono/op_mono_cache_new.bin'
+    convergence_ignore_equL_residuals=.true.
+    op_mono_method = 'hu'
+    !high_logT_op_mono_full_off = 7.0d0
+    !high_logT_op_mono_full_on = 6.8d0
 
     max_resid_jump_limit = 1d99
     !max_timestep = 1d-4
@@ -90,7 +91,6 @@
     !extra_controls_inlist_name(1)= 'inlist_common'
     mesh_delta_coeff=1.0
     log_directory = 'LOGS_final_095_approx21_tail_2.0timesni56_0,01s'
-   ! max_abar_for_burning=-1
     non_nuc_neu_factor = 1
  
     scale_max_correction = 0.1d0
@@ -102,10 +102,14 @@
     use_ledoux_criterion = .true.
     mixing_length_alpha = 1.5
     thermohaline_coeff = 1d0
+    set_min_D_mix = .true.
+    min_D_mix = 1d2
+    mass_lower_limit_for_min_D_mix = 0.93d0
 
 
-    super_eddington_wind_Ledd_factor=1.0
-    super_eddington_scaling_factor=1
+
+    !super_eddington_wind_Ledd_factor=1.0
+    !super_eddington_scaling_factor=1
     !super_eddington_wind_max_boost = 1
 
     mdot_revise_factor = 1.2
@@ -113,8 +117,7 @@
     eps_mdot_factor = 0d0
     okay_to_reduce_gradT_excess=.true.
     gradT_excess_lambda1=-1
-    Pextra_factor = 1.5
-  
+    !pextra_factor=1
     history_interval=1
 / ! end of controls namelist
 

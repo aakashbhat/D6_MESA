@@ -14,5 +14,5 @@ for file in files:
     image=imageio.imread(file_path)
     frames.append(image)
 
-imageio.mimsave(output_file,frames,fps=30)
+imageio.mimsave(output_file,frames,fps=10)
 
