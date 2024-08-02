@@ -169,3 +169,63 @@
       solver_calls_made:          585
       solver_calls_failed:            3
       solver_iterations:         2386
+    - inlist: inlist_zams_header
+      runtime_minutes:   0.66
+      model_number:          174
+      star_age:     4.3019805709004113E+06
+      num_retries:            0
+      log_rel_run_E_err:       -10.9667269605115987
+      steps:          549
+      retries:            1
+      redos:            0
+      solver_calls_made:          550
+      solver_calls_failed:            1
+      solver_iterations:         1598
+    - inlist: inlist_to_end_he_core_burn_header
+      runtime_minutes:  12.19
+      model_number:          728
+      star_age:     8.8962292098084176E+08
+      num_retries:            0
+      log_rel_run_E_err:        -6.7917976324123401
+      steps:          728
+      retries:            0
+      redos:            0
+      solver_calls_made:          728
+      solver_calls_failed:            0
+      solver_iterations:         5292
+    - inlist: inlist_co_core_header
+      runtime_minutes:   1.95
+      model_number:           61
+      star_age:     9.0231497120539200E+08
+      num_retries:            0
+      log_rel_run_E_err:        -7.0475714003953769
+      steps:           61
+      retries:            0
+      redos:            0
+      solver_calls_made:           61
+      solver_calls_failed:            0
+      solver_iterations:          610
+    - inlist: inlist_remove_env_header
+      runtime_minutes:   3.70
+      model_number:          174
+      star_age:     9.0291146550085938E+08
+      num_retries:           19
+      log_rel_run_E_err:        -7.0737570640057648
+      steps:          467
+      retries:           25
+      redos:            0
+      solver_calls_made:          492
+      solver_calls_failed:           25
+      solver_iterations:         1456
+    - inlist: inlist_settle_header
+      runtime_minutes:   1.60
+      model_number:          235
+      star_age:     9.0906286996155846E+08
+      num_retries:            0
+      log_rel_run_E_err:        -8.9162718583747402
+      steps:           61
+      retries:            0
+      redos:            0
+      solver_calls_made:           61
+      solver_calls_failed:            0
+      solver_iterations:          547

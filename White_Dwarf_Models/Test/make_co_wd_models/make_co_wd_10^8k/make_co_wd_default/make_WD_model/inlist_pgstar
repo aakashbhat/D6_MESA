@@ -1,0 +1,13 @@
+&pgstar
+  ! see star/defaults/pgstar.defaults
+
+  ! MESA uses PGPLOT for live plotting and gives the user a tremendous
+  ! amount of control of the presentation of the information.
+
+    Grid2_win_flag=.true.
+    Grid2_win_width = 7 ! 7
+    Grid2_win_aspect_ratio = 0.55
+    Grid2_txt_scale_factor(1) = 0.9
+    
+
+/ ! end of pgstar namelist

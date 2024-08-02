@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rm -f restart_photo
+
+date "+DATE: %Y-%m-%d%nTIME: %H:%M:%S"
+./star
+#do_one inlist_settle 
+date "+DATE: %Y-%m-%d%nTIME: %H:%M:%S"

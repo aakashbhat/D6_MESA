@@ -1,0 +1,15 @@
+&eos
+  !include_elec_pos=.false.
+  use_FreeEOS=.false.
+  use_Skye=.false.
+  use_OPAL_SCVH=.false.
+  use_CMS=.false.
+  !use_simple_Skye_blends=.true.
+  !logT_min_for_any_Skye = 8.0
+  !logT_min_for_all_Skye = 8.2
+  !logrho_min_for_any_Skye =2.9
+  !logrho_min_for_all_Skye =3.0
+
+  !logT_max_freeEOS_HI= 8.2
+  !logT_max_freeEOS_lo=8.2
+/

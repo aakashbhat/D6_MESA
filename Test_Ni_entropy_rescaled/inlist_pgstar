@@ -1,0 +1,81 @@
+&pgstar
+
+    !pgstar_interval = 1
+
+    !Profile_Panels1_win_flag = .true.
+
+    !Profile_Panels1_win_width = 4
+    !Profile_Panels1_win_aspect_ratio = 0.75
+
+    !Profile_Panels1_xleft = 0.15
+    !Profile_Panels1_xright = 0.85
+    !Profile_Panels1_ybot = 0.15
+    !Profile_Panels1_ytop = 0.85
+    !Profile_Panels1_txt_scale = 1.0
+    !Profile_Panels1_title = 'Profile Panels1'
+
+    !Profile_Panels1_xaxis_name = 'logT'
+    !Profile_Panels1_xaxis_reversed = .false.
+    !Profile_Panels1_xmin = -101d0
+    !Profile_Panels1_xmax = -101d0
+    !Profile_Panels1_xmargin = 0d0
+    !Profile_Panels1_show_mix_regions_on_xaxis = .false.
+
+    !Profile_Panels1_show_grid = .true.
+
+    !Profile_Panels1_num_panels = 2
+    !Profile_Panels1_yaxis_name(1) = 'kap_frac_op_mono'
+    !Profile_Panels1_other_yaxis_name(1) = 'log_opacity'
+    !Profile_Panels1_yaxis_name(2) = 'dkap_dlnT_face'
+    !Profile_Panels1_other_yaxis_name(2) = 'dkap_dlnT_face'
+
+    !Profile_Panels1_use_decorator = .false.
+
+    !Profile_Panels1_file_flag = .false.
+    !Profile_Panels1_file_dir = 'png'
+    !Profile_Panels1_file_prefix = 'profile_panels1_'
+    !Profile_Panels1_file_interval = 5
+    !Profile_Panels1_file_width = -1
+    !Profile_Panels1_file_aspect_ratio = -1
+  ! see star/defaults/pgstar.defaults
+
+  ! MESA uses PGPLOT for live plotting and gives the user a tremendous
+  ! amount of control of the presentation of the information.
+
+  Grid2_win_flag=.true.
+    
+    Grid2_file_flag = .true.
+    Grid2_file_interval = 2
+    Grid2_file_width = 12
+    show_TRho_Profile_mass_locs=.true.
+    Grid2_win_width = 9 ! 
+    Grid2_win_aspect_ratio = 0.8
+    Grid2_txt_scale_factor(1) = 0.8
+    pgstar_interval=2
+   !file_flag=.true.
+  !  TRho_switch_to_mass=.false.
+    TRho_Profile_win_aspect_ratio=1
+    show_TRho_Profile_legend = .true.
+    show_TRho_Profile_eos_regions=.true.
+    show_TRho_Profile_burn_lines=.false.
+    Grid2_num_plots = 5
+    Grid2_plot_name(5) = 'Profile_Panels3'
+    Profile_Panels3_num_panels = 4
+    Profile_Panels3_xaxis_name = 'zone'
+
+    !Profile_Panels3_xmin=0
+    Profile_Panels3_yaxis_name(3) = 'logT'
+    Profile_Panels3_other_yaxis_name(3) = 'eos_frac_Skye'
+    Profile_Panels3_yaxis_name(4) = 'extra_heat'
+    Profile_Panels3_other_yaxis_name(4) = 'logrho'
+    
+    !Grid2_plot_name(6) = 'Profile_Panels3'
+    !Profile_Panels4_xaxis_name = 'radius'
+    !Profile_Panels3_yaxis_name(4) = 'eos_frac_FreeEOS'
+    !Profile_Panels3_yaxis_name(4) = 'LogS'
+
+
+
+
+
+/ ! end of pgstar namelist
