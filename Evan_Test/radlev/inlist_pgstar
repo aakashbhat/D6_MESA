@@ -1,0 +1,103 @@
+&pgstar
+
+    !pgstar_interval = 1
+
+    Profile_Panels2_win_flag = .true.
+Profile_Panels2_win_aspect_ratio = 1.25
+Profile_Panels2_txt_scale = 0.9
+Profile_Panels2_ybot = 0.1
+Profile_Panels2_ytop = 0.9
+Profile_Panels2_title = 'Abundance-Power-Mixing'
+
+Profile_Panels2_xaxis_name = 'logP'
+Profile_Panels2_xaxis_reversed = .true.
+
+Profile_Panels2_num_panels = 3
+Profile_Panels2_yaxis_name(1) = 'Abundance'
+Profile_Panels2_yaxis_name(2) = 'Power'
+Profile_Panels2_yaxis_name(3) = 'Mixing'
+
+
+    !Profile_Panels1_win_width =6
+    !Profile_Panels1_win_aspect_ratio = 0.75
+
+    !Profile_Panels1_xleft = 0.15
+    !Profile_Panels1_xright = 0.85
+    !Profile_Panels1_ybot = 0.15
+    !Profile_Panels1_ytop = 0.85
+    !Profile_Panels1_txt_scale = 1.0
+    !Profile_Panels1_title = 'Profile Panels1'
+
+    !Profile_Panels1_xaxis_name = 'zone'
+    !Profile_Panels1_xaxis_reversed = .false.
+    !Profile_Panels1_xmin = -101d0
+    !Profile_Panels1_xmax = 200
+    !Profile_Panels1_xmargin = 0d0
+    !Profile_Panels1_show_mix_regions_on_xaxis = .false.
+
+    !Profile_Panels1_show_grid = .true.
+
+    !Profile_Panels1_num_panels =3
+    !Profile_Panels1_yaxis_name(1) = 'logrho'
+    !Profile_Panels1_other_yaxis_name(1) = 'logT'
+    !Profile_Panels1_yaxis_name(2) = 'opacity'
+    !Profile_Panels1_other_yaxis_name(2) = 'kap_frac_op_mono'
+    !Profile_Panels1_yaxis_name(3) = 'log_g'
+    !Profile_Panels1_other_yaxis_name(3) = 'log_g_rad fe56'
+    !Profile_Panels1_other_ymin(3)=5
+    !Profile_Panels1_other_ymax(3)=9
+    !Profile_Panels1_ymin(3)=5
+    !Profile_Panels1_ymax(3)=9
+
+    !Profile_Panels1_use_decorator = .false.
+
+    !Profile_Panels1_file_flag = .false.
+    !Profile_Panels1_file_dir = 'png'
+    !Profile_Panels1_file_prefix = 'profile_panels1_'
+    !Profile_Panels1_file_interval = 5
+    !Profile_Panels1_file_width = -1
+    !Profile_Panels1_file_aspect_ratio = -1
+  ! see star/defaults/pgstar.defaults
+
+  ! MESA uses PGPLOT for live plotting and gives the user a tremendous
+  ! amount of control of the presentation of the information.
+
+  Grid2_win_flag=.true.
+    
+    Grid2_file_flag = .true.
+    Grid2_file_interval = 2
+    Grid2_file_width = 14
+    show_TRho_Profile_mass_locs=.true.
+    Grid2_win_width =14 ! 
+    Grid2_win_aspect_ratio = 0.8
+    Grid2_txt_scale_factor(1) = 0.45
+    pgstar_interval=2
+   !file_flag=.true.
+  !  TRho_switch_to_mass=.false.
+    TRho_Profile_win_aspect_ratio=1
+    show_TRho_Profile_legend = .true.
+    show_TRho_Profile_eos_regions=.true.
+    show_TRho_Profile_burn_lines=.false.
+    Grid2_num_plots = 5
+    Grid2_plot_name(5) = 'Profile_Panels3'
+    Profile_Panels3_num_panels = 5
+    Profile_Panels3_xaxis_name = 'zone'
+
+    Profile_Panels3_xmax=6
+    Profile_Panels3_yaxis_name(3) = 'temperature'
+    Profile_Panels3_other_yaxis_name(3) = 'density'
+    Profile_Panels3_yaxis_name(4) = 'opacity'
+    Profile_Panels3_other_yaxis_name(4) = 'tau'
+    Profile_Panels3_yaxis_name(5) ='logfree_e'
+    !Profile_Panels3_other_ymin(4)=0
+    !Grid2_plot_name(6) = 'Profile_Panels4'
+    !Profile_Panels4_num_panels = 1
+    !Profile_Panels4_xaxis_name = 'radius'
+   !Profile_Panels4_yaxis_name(1) = 'logT'
+    !Profile_Panels4_other_yaxis_name(1) = 'logrho'
+
+
+
+
+
+/ ! end of pgstar namelist
